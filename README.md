@@ -36,7 +36,12 @@ var interaction = await fund.contribute(amount);
 Use `arfunds` on your server:
 
 ```
-npm install
+npm install --save arfunds
+```
+
+Import Arfunds methods
+```
+import Arfund, { getAllContracts } from "./Arfunds";
 ```
 
 
