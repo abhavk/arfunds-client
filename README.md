@@ -4,9 +4,9 @@ This repository demonstrates usage of the `arfunds` npm package. Sample code is 
 
 Install arfunds
 
-In order to run this in your own web package, copy the `bundle.js` to your own repository and import it using:
+In order to run this in your own web package, copy `arfunds_bundle.js` to your own repository and import it using:
 ```
-<script src="bundle.js"></script>
+<script src="arfunds_bundle.js"></script>
 ```
 
 Run the `index.html` server (requires ArConnect wallet)

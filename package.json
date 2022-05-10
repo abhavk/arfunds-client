@@ -1,6 +1,6 @@
 {
   "scripts":{
-	"compile:web": "npx browserify -p esmify main.js -o bundle.js"
+	"compile:web": "npx browserify -p esmify main.js -o arfunds_bundle.js"
 	},
   "dependencies": {
     "arfunds": "1.0.0",
