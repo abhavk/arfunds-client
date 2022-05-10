@@ -9,12 +9,19 @@ In order to run this in your own web package, copy the `bundle.js` to your own r
 <script src="bundle.js"></script>
 ```
 
+Run the `index.html` server (requires ArConnect wallet)
+```
+serve
+```
+
+## Available Methods
+
 Fetch all Arfund contract IDs
 ```
 var contracts = await getAllContracts();
 ```
 
-Interact with a particular Arfund contract
+Connect with and get the state of a particular Arfund contract
 ```
 var fund = new Arfund(contractId, arweave, true);
 var state = await fund.getState(state);
@@ -25,13 +32,11 @@ Contribute an `amount` to an Arfund contract
 var interaction = await fund.contribute(amount);
 ```
 
+## Server Side
 Use `arfunds` on your server:
 
 ```
 npm install
 ```
 
-Run a sample server (requires ArConnect wallet)
-```
-npm serve
-```  
+
