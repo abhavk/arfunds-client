@@ -1,0 +1,60 @@
+<html><head>
+    <script src="bundle.js"></script>    <!-- <== the browserify output -->
+    <script src="https://unpkg.com/arweave/bundles/web.bundle.min.js"></script>
+</head>
+<body>
+    <div id="x"></div>
+    <script>
+    var arweave = Arweave.init({
+		host: "arweave.net",
+                port: 443,
+                protocol: "https",
+                timeout: 20000,
+                logging: false,
+	});
+    var printState = async () => { 
+	var state= await fund.getState();
+	console.log(state)
+	}
+    printState();
+    console.log("awaiting arconnect");
+    console.log(window);
+    window.addEventListener("arweaveWalletLoaded", () => {
+  		/** Handle ArConnect load event **/
+		console.log("READY");
+		connectToArconnect();
+	});
+    console.log(window.arweaveWallet);
+    var connectToArconnect = async () => {
+      await window.arweaveWallet.connect(['ACCESS_ADDRESS', 'ACCESS_ALL_ADDRESSES', 'SIGN_TRANSACTION']);
+      window.addEventListener('walletSwitch', async () => {
+        await this.loadBalances();
+      });
+      await this.loadBalances();
+    }
+    var contribute = async (amount, contractId) => { 
+		var fund = new Arfund(contractId, arweave, true);
+		var interaction = await fund.contribute(amount);
+		console.log(interaction);
+	}
+    var read = async (contractId) => {
+		var fund = new Arfund(contractId, arweave, true);
+		var state = await fund.getState(state);
+		document.getElementById("stateData").innerHTML = JSON.stringify(state, null, 2);
+	}
+    var getContracts = async () => {
+		var contracts = await getAllContracts();
+		document.getElementById("allContracts").innerHTML = JSON.stringify(contracts, null, 2);
+	} 
+    </script>
+    	<br>
+    <button onclick="getContracts()">Get Contracts</button>
+    <pre id="allContracts"></pre>
+	<br>
+    <input type="text" name="contract" id="contract">
+    <button onclick="read(document.getElementById('contract').value)">Read State</button>
+    <pre id="stateData"></pre>
+	<br>
+    <input type="number" name="contribution" id="contribution">
+    <button onclick="contribute(document.getElementById('contribution').value, document.getElementById('contract').value)">Contribute</button>
+</body></html>
