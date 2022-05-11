@@ -1,15 +1,15 @@
 # arfunds-client
 
-This repository demonstrates usage of the `arfunds` npm package. Sample code is available in `index.html`. 
+This repository demonstrates usage of the [arfunds](https://github.com/abhavk/arfunds) npm package. Sample code is available in `index.html`. 
 
 Install arfunds
 
-In order to run this in your own web package, copy `arfunds_bundle.js` to your own repository and import it using:
+In order to run this in your own web app, import it using:
 ```
-<script src="arfunds_bundle.js"></script>
+<script src="https://unpkg.com/arfunds@latest/umd/arfunds_bundle.js"></script>
 ```
 
-Run the `index.html` server (requires ArConnect wallet)
+Run the example `index.html` server (requires ArConnect wallet):
 ```
 serve
 ```
