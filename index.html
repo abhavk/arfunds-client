@@ -43,7 +43,7 @@
 		document.getElementById("stateData").innerHTML = JSON.stringify(state, null, 2);
 	}
     var getContracts = async () => {
-		var contracts = await getAllContracts();
+		var contracts = await getAllContracts(arweave);
 		document.getElementById("allContracts").innerHTML = JSON.stringify(contracts, null, 2);
 	} 
     </script>
